@@ -11,25 +11,40 @@ export default function CreateContact() {
 
     async function createContact(event) {
         event.preventDefault();
-        if (name !== "" && surname !== "" && phone !== "") {
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application-json" },
-                body: JSON.stringify({
-                    contact: {
-                        nombre: name,
-                        apellidos: surname,
-                        correo: email,
-                        telefono: phone,
-                        fecha_nacimiento: birthdate,
-                    },
-                }),
-            });
-        } else {
+        if (name === "" && surname === "" && phone === "") {
             alert(
                 "Alguno de los campos (nombre, apellidos, telefono) esta vacio"
             );
+            return;
         }
+
+        const regexPhone = new RegExp("[0-9]{9}");
+        if (!regexPhone.test(phone)) {
+            alert("El campo del telefono no tiene 9 digitos");
+            return;
+        }
+
+        const regexEmail = new RegExp("/^[^s@]+@[^s@]+.[^s@]+$/");
+        if (!regexEmail.test(email)) {
+            alert(
+                "El campo del correo electronico no tiene el formato adecuado"
+            );
+            return;
+        }
+
+        const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application-json" },
+            body: JSON.stringify({
+                contact: {
+                    nombre: name,
+                    apellidos: surname,
+                    correo: email,
+                    telefono: phone,
+                    fecha_nacimiento: birthdate,
+                },
+            }),
+        });
     }
 
     return (

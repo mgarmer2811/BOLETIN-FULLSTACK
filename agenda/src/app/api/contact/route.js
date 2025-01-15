@@ -29,6 +29,24 @@ export async function POST(request) {
     );
 }
 
+export async function PUT(request) {
+    const body = await request.json();
+    const id = body.id;
+
+    const { data: updateData, error } = await supabase
+        .from("contacto")
+        .update(body.update)
+        .eq("id", id);
+
+    if (error) {
+        return new Response(JSON.stringify({ error: error }), { status: 404 });
+    }
+
+    return new Response(JSON.stringify({ sucess: "Update succesful" }), {
+        status: 200,
+    });
+}
+
 export async function DELETE(request) {
     const body = await request.json();
     const id = body.id;
