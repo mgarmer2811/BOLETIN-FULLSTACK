@@ -24,7 +24,7 @@ export default function CreateContact() {
             return;
         }
 
-        const regexEmail = new RegExp("/^[^s@]+@[^s@]+.[^s@]+$/");
+        const regexEmail = new RegExp("^[^s@]+@[^s@]+\\.[^s@]+$","i");
         if (!regexEmail.test(email)) {
             alert(
                 "El campo del correo electronico no tiene el formato adecuado"
