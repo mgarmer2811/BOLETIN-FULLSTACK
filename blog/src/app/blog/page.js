@@ -16,13 +16,13 @@ export default function articleList() {
         setarticles(body);
     }
 
-    async function deleteArticle(idDelete){
-        if(window.confirm("Desea eliminar este articulo del blog?")){
-            const response = await fetch("api/article",{
+    async function deleteArticle(idDelete) {
+        if (window.confirm("Desea eliminar este articulo del blog?")) {
+            const response = await fetch("api/article", {
                 method: "DELETE",
-                headers: {"ContentType": "application-json"},
-                body: JSON.stringify({id:idDelete})
-            })
+                headers: { ContentType: "application-json" },
+                body: JSON.stringify({ id: idDelete }),
+            });
             fetchArticles();
         }
     }
@@ -37,11 +37,25 @@ export default function articleList() {
                             {article.titulo}
                         </Link>
                     </h2>
-                    <p><strong>Autor:</strong> {article.autor}</p>
-                    <p><strong>Fecha de Publicación:</strong> {article.fecha_publicacion}</p>
-                    <button onClick={() => deleteArticle(article.id)}><strong>ELIMINAR</strong></button>
+                    <p>
+                        <strong>Autor:</strong> {article.autor}
+                    </p>
+                    <p>
+                        <strong>Fecha de Publicación:</strong>{" "}
+                        {article.fecha_publicacion}
+                    </p>
+                    <button onClick={() => deleteArticle(article.id)}>
+                        <strong>ELIMINAR</strong>
+                    </button>
                 </article>
             ))}
+            <br />
+            <br />
+            <button>
+                <Link href={"/blog/createArticle"}>
+                    <b>ENVIAR ARTICULO</b>
+                </Link>
+            </button>
         </div>
     );
 }
