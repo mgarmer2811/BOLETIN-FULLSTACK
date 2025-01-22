@@ -36,12 +36,17 @@ export default function ListContact() {
                     <Link href={"/contact/" + contact.id}>
                         {contact.nombre} {contact.apellidos}
                     </Link>
-                    <button onClick={() => deleteContact(contact.id)}>
+                    <button
+                        onClick={() => deleteContact(contact.id)}
+                        className="delete"
+                    >
                         Eliminar
                     </button>
                 </p>
             ))}
-            <Link href={"/contact/create"}>Agregar contacto</Link>
+            <button id="add-contact">
+                <Link href={"/contact/create"}>Agregar contacto</Link>
+            </button>
         </div>
     );
 }
