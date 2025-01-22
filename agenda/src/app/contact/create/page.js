@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function CreateContact() {
     const [name, setName] = useState("");
@@ -8,6 +9,7 @@ export default function CreateContact() {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [birthdate, setBirthdate] = useState("");
+    const router = useRouter();
 
     async function createContact(event) {
         event.preventDefault();
@@ -24,7 +26,7 @@ export default function CreateContact() {
             return;
         }
 
-        const regexEmail = new RegExp("^[^s@]+@[^s@]+\\.[^s@]+$","i");
+        const regexEmail = new RegExp("^[^s@]+@[^s@]+\\.[^s@]+$", "i");
         if (!regexEmail.test(email)) {
             alert(
                 "El campo del correo electronico no tiene el formato adecuado"
@@ -85,8 +87,18 @@ export default function CreateContact() {
                     onChange={(e) => setBirthdate(e.target.value)}
                 ></input>
                 <br />
-                <input type="submit" value="Crear"></input>
             </form>
+            <div className="button-container">
+                <button type="submit" className="add-contact">
+                    Añadir contacto
+                </button>
+                <button
+                    onClick={() => router.push("/contact")}
+                    className="return"
+                >
+                    Volver a la agenda
+                </button>
+            </div>
         </div>
     );
 }

@@ -14,11 +14,26 @@ div {
 
 h1 {
   margin-bottom: 1.5em;
-  color: #F1F0E8 ;
+  color: #F1F0E8;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  color: #F1F0E8;
 }
 
 p a{
   display: block;
+}
+
+a{
+  text-decoration: none;
+  color: #F1F0E8;
+}
+
+a:visited{
   color: #F1F0E8;
 }
 
@@ -26,18 +41,49 @@ button {
   font-weight: bold;
   font-size: large;
   color: #F1F0E8;
+  background-color: #FF8D43;
   border-radius: 0.5em;
 }
 
-button.delete{
-  background-color: #FF8D43;
-}
-
-button.delete:hover{
+button.delete:hover {
   opacity: 0.7;
 }
 
-#add-contact {
+div.button-container button {
   display: block;
-  margin-top: 3em;
+}
+
+button.add-contact {
+  display: block;
+  background-color: #66ad6c;
+}
+
+button.add-contact:hover {
+  background-color: #c5c5c5;
+}
+
+div.button-container {
+  display: flex;
+  align-items: center;
+}
+
+span {
+  font-weight: bold;
+  color: #FFE6A9;
+}
+
+form {
+  margin-bottom: 2em;
+}
+
+input {
+  border-radius: 0.5em;
+  background-color: #F1F0E8;
+  color: #FCD855;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+label {
+  color: #FFE6A9;
 }

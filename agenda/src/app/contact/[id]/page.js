@@ -53,23 +53,31 @@ export default function Contact({ params }) {
         fetchContact();
     }, []);
 
-    function returnBack() {
-        router.push("/contact");
-    }
-
     if (contact && !isEditing) {
         return (
             <div>
                 <h1>
                     {contact.nombre} {contact.apellidos}
                 </h1>
-                <p>{contact.correo}</p>
-                <p>{contact.telefono}</p>
-                <p>{contact.fecha_nacimiento}</p>
+                <p>
+                    <span>Email: </span>
+                    {contact.correo}
+                </p>
+                <p>
+                    <span>Telefono: </span>
+                    {contact.telefono}
+                </p>
+                <p>
+                    <span>Fecha de nacimiento: </span>
+                    {contact.fecha_nacimiento}
+                </p>
                 <button onClick={() => setIsEditing(true)}>Modificar</button>
-                <br />
-                <br />
-                <button onClick={returnBack}>Volver a la agenda</button>
+                <button
+                    onClick={() => router.push("/contact")}
+                    className="return"
+                >
+                    Volver a la agenda
+                </button>
             </div>
         );
     } else if (contact && isEditing) {

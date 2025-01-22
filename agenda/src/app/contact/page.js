@@ -44,8 +44,8 @@ export default function ListContact() {
                     </button>
                 </p>
             ))}
-            <button id="add-contact">
-                <Link href={"/contact/create"}>Agregar contacto</Link>
+            <button className="add-contact" style={{ marginTop: "3em" }}>
+                <Link href={"/contact/create"}>Añadir contacto</Link>
             </button>
         </div>
     );
