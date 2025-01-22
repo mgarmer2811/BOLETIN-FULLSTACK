@@ -71,13 +71,17 @@ export default function Contact({ params }) {
                     <span>Fecha de nacimiento: </span>
                     {contact.fecha_nacimiento}
                 </p>
-                <button onClick={() => setIsEditing(true)}>Modificar</button>
-                <button
-                    onClick={() => router.push("/contact")}
-                    className="return"
-                >
-                    Volver a la agenda
-                </button>
+                <div className="button-container">
+                    <button onClick={() => setIsEditing(true)}>
+                        Modificar
+                    </button>
+                    <button
+                        onClick={() => router.push("/contact")}
+                        className="return"
+                    >
+                        Volver a la agenda
+                    </button>
+                </div>
             </div>
         );
     } else if (contact && isEditing) {
@@ -124,7 +128,11 @@ export default function Contact({ params }) {
                         value={birthdate}
                     ></input>
                     <br />
-                    <input type="submit" value="Confirmar"></input>
+                    <input
+                        type="submit"
+                        value="Confirmar"
+                        className="add-contact"
+                    ></input>
                 </form>
             </div>
         );

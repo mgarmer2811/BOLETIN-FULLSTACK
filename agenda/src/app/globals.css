@@ -1,89 +1,101 @@
-body {
-  font-family: var(--font-roboto-mono), monospace;
-  background-color: #89A8B2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
+a {
+    text-decoration: none;
+    color: #f1f0e8;
 }
 
-div {
-  width: 800px;
-  font-size: large;
+a:visited {
+    color: #f1f0e8;
 }
 
-h1 {
-  margin-bottom: 1.5em;
-  color: #F1F0E8;
+.add-contact {
+    display: block;
+    background-color: #66ad6c;
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
 }
 
-p {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  color: #F1F0E8;
-}
-
-p a{
-  display: block;
-}
-
-a{
-  text-decoration: none;
-  color: #F1F0E8;
-}
-
-a:visited{
-  color: #F1F0E8;
+.add-contact:hover {
+    background-color: #c5c5c5;
 }
 
 button {
-  font-weight: bold;
-  font-size: large;
-  color: #F1F0E8;
-  background-color: #FF8D43;
-  border-radius: 0.5em;
+    font-weight: bold;
+    font-size: large;
+    color: #f1f0e8;
+    background-color: #ff8d43;
+    border-radius: 0.5em;
 }
 
 button.delete:hover {
-  opacity: 0.7;
+    opacity: 0.7;
 }
 
-div.button-container button {
-  display: block;
+body {
+    font-family: var(--font-roboto-mono), monospace;
+    background-color: #89a8b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
-button.add-contact {
-  display: block;
-  background-color: #66ad6c;
-}
-
-button.add-contact:hover {
-  background-color: #c5c5c5;
+div {
+    width: 800px;
+    font-size: large;
 }
 
 div.button-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+    margin-top: 3em;
 }
 
-span {
-  font-weight: bold;
-  color: #FFE6A9;
+form .button-container {
+    display: flex;
+    align-items: center;
 }
 
-form {
-  margin-bottom: 2em;
+form button,
+input[type="submit"] {
+    margin-top: 0.5em;
 }
 
-input {
-  border-radius: 0.5em;
-  background-color: #F1F0E8;
-  color: #FCD855;
-  padding: 0.5em;
-  margin: 0.5em;
+h1 {
+    margin-bottom: 1.5em;
+    color: #f1f0e8;
+}
+
+input:not([type="submit"]) {
+    border-radius: 0.5em;
+    background-color: #f1f0e8;
+    color: #b6951f;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+input.add-contact {
+    font-weight: bold;
+    font-size: large;
+    color: #f1f0e8;
+    border-radius: 0.5em;
+    padding: 0;
 }
 
 label {
-  color: #FFE6A9;
+    color: #ffe6a9;
+}
+
+p {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    color: #f1f0e8;
+}
+
+p a {
+    display: block;
+}
+
+span {
+    font-weight: bold;
+    color: #ffe6a9;
 }

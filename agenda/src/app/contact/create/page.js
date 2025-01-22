@@ -11,8 +11,8 @@ export default function CreateContact() {
     const [birthdate, setBirthdate] = useState("");
     const router = useRouter();
 
-    async function createContact(event) {
-        event.preventDefault();
+    async function createContact(e) {
+        e.preventDefault();
         if (name === "" && surname === "" && phone === "") {
             alert(
                 "Alguno de los campos (nombre, apellidos, telefono) esta vacio"
@@ -26,7 +26,10 @@ export default function CreateContact() {
             return;
         }
 
-        const regexEmail = new RegExp("^[^s@]+@[^s@]+\\.[^s@]+$", "i");
+        const regexEmail = new RegExp(
+            "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+        );
+
         if (!regexEmail.test(email)) {
             alert(
                 "El campo del correo electronico no tiene el formato adecuado"
@@ -47,6 +50,21 @@ export default function CreateContact() {
                 },
             }),
         });
+
+        if (response.ok) {
+            alert("Contacto creado con exito!");
+        }
+        forceRender();
+    }
+
+    /**
+     * Hay un bug en el que el formulario se envia 2 veces. Para evitar esto, si el
+     * usuario quiere seguir agregando personas lo que hago es forzar un renderizado
+     * completo de la pagina. (Me he inventado esta solucion porque no he encontrado
+     * nada al respecto)
+     */
+    function forceRender() {
+        window.location.reload();
     }
 
     return (
@@ -58,20 +76,20 @@ export default function CreateContact() {
                     type="text"
                     onChange={(e) => setName(e.target.value)}
                     required
-                ></input>
+                />
                 <br />
                 <label>Apellidos</label>
                 <input
                     type="text"
                     onChange={(e) => setSurname(e.target.value)}
                     required
-                ></input>
+                />
                 <br />
                 <label>Correo</label>
                 <input
                     type="email"
                     onChange={(e) => setEmail(e.target.value)}
-                ></input>
+                />
                 <br />
                 <label>Telefono</label>
                 <input
@@ -79,26 +97,28 @@ export default function CreateContact() {
                     onChange={(e) => setPhone(e.target.value)}
                     required
                     pattern="[0-9]{9}"
-                ></input>
+                />
                 <br />
                 <label>Fecha de nacimiento</label>
                 <input
                     type="date"
                     onChange={(e) => setBirthdate(e.target.value)}
-                ></input>
+                />
                 <br />
+                <div className="button-container">
+                    <input
+                        type="submit"
+                        value="Añadir contacto"
+                        className="add-contact"
+                    />
+                    <button
+                        onClick={() => router.push("/contact")}
+                        className="return"
+                    >
+                        Volver a la agenda
+                    </button>
+                </div>
             </form>
-            <div className="button-container">
-                <button type="submit" className="add-contact">
-                    Añadir contacto
-                </button>
-                <button
-                    onClick={() => router.push("/contact")}
-                    className="return"
-                >
-                    Volver a la agenda
-                </button>
-            </div>
         </div>
     );
 }
