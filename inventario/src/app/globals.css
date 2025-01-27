@@ -1,0 +1,9 @@
+td,th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.out-of-stock{
+  background-color: #ff0000;
+  font-weight: bold;
+}
