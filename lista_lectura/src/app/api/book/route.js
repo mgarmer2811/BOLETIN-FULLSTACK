@@ -29,3 +29,29 @@ export async function DELETE(request) {
         { status: 200 }
     );
 }
+
+export async function PATCH(request) {
+    const { id, read } = await request.json();
+
+    const { data, error } = await supabase
+        .from("libro")
+        .update({ leido: read })
+        .eq("id", id);
+
+    if (error) {
+        return new Response(JSON.stringify(error), { status: 500 });
+    }
+    return new Response(JSON.stringify(data), { status: 200 });
+}
+
+export async function POST(request) {
+    const body = await request.json();
+    const book = body.book;
+
+    const { data, error } = await supabase.from("libro").insert(book);
+
+    if (error) {
+        return new Response(JSON.stringify(error), { status: 500 });
+    }
+    return new Response(JSON.stringify(data), { status: 201 });
+}

@@ -1,5 +1,5 @@
 {
-  "name": "inventario",
+  "name": "habitos",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.48.1",
-    "inventario": "file:",
+    "habitos": "file:",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
