@@ -17,7 +17,7 @@ export default function Main() {
             </div>
             <div className="div3">
                 <img
-                    src="/images/image3.jpg"
+                    src="/images/image3.png"
                     alt="image3"
                     className="imageStyle"
                 />
