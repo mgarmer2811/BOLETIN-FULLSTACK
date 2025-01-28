@@ -2,21 +2,21 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-roboto-mono);
 }
 
 .headerStyle {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
-    color: #fff;
+    background-color: #000000;
+    color: #ffffff;
     padding: 1vh 2vw;
 }
 
 .logoStyle {
-    font-size: 2vh;
-    font-weight: bold;
+    height: 8vh;
+    width: 6vw;
 }
 
 .navStyle {
@@ -25,42 +25,40 @@
 }
 
 .linkStyle {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 1.8vh;
 }
 
 .mainStyle {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
     gap: 2vw;
     padding: 2vh 2vw;
     flex: 1;
-}
-
-.boxStyle {
-    background-color: #f4f4f4;
-    padding: 2vh;
-    text-align: center;
-    border: 1px solid #ddd;
 }
 
 .footerStyle {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #333;
-    color: #fff;
+    background-color: #000000;
+    color: #ffffff;
     padding: 1vh 0;
 }
 
 @media (max-width: 768px) {
     .mainStyle {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
     }
 
     .navStyle {
         flex-direction: column;
-        gap: 1vh;
+        gap: 2vh;
+    }
+
+    .linkStyle {
+        font-size: 1.2rem;
     }
 }

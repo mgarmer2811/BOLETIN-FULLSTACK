@@ -13,7 +13,7 @@ export async function GET(request) {
     if (error) {
         return new Response(JSON.stringify(error), { status: 500 });
     }
-    return new Response(JSON.stringify(event), { status: 777 });
+    return new Response(JSON.stringify(event), { status: 200 });
 }
 
 export async function PATCH(request) {
